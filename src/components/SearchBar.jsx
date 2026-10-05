@@ -10,6 +10,9 @@ function SearchBar({ value, onChange }) {
         placeholder="Search products, supp..."
         value={value}
         onChange={(event) => onChange(event.target.value)}
+        autoCapitalize="none"
+        autoCorrect="off"
+        spellCheck="false"
       />
     </div>
   );

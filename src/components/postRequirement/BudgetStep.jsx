@@ -18,13 +18,28 @@ function BudgetStep({ budget, details, attachmentName, onChange, onNext, onBack 
           onClick={onBack}
           aria-label="Back"
         >
-          <BackArrowIcon />
+          <BackArrowIcon style={{ width: 16, height: 16, stroke: "#3D4948", strokeWidth: 2.2 }} />
         </button>
-        <span className="budget-step-counter">Step 6 of 8</span>
       </div>
 
-      <div className="budget-progress-track">
-        <div className="budget-progress-fill" style={{ width: "75%" }} />
+      <div className="del-stepper-8">
+        <div className="del-track-container">
+          <div className="del-track-bg-line" />
+          <div className="del-track-fill-line del-track-fill-step4" />
+          <div className="del-step-dot del-dot-done"><span>1</span></div>
+          <div className="del-step-dot del-dot-done"><span>2</span></div>
+          <div className="del-step-dot del-dot-done"><span>3</span></div>
+          <div className="del-step-dot del-dot-active">
+            <div className="del-dot-active-inner">
+              <span>4</span>
+            </div>
+          </div>
+          <div className="del-step-dot del-dot-inactive"><span>5</span></div>
+        </div>
+        <div className="del-stepper-meta">
+          <span className="del-step-title-teal">Step 4: Budget &amp; Additional Details</span>
+          <span className="del-step-percent">80% Complete</span>
+        </div>
       </div>
 
       <div className="budget-header-block">

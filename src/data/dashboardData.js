@@ -35,13 +35,43 @@ export const popularItems = [
     id: "item-carrot",
     name: "Fresh Carrot",
     suppliers: 25,
+    category: "agriculture",
     image: carrotImg
   },
   {
     id: "item-capsicum",
     name: "Capsicum",
     suppliers: 18,
+    category: "agriculture",
     image: capsicumImg
+  },
+  {
+    id: "item-onions",
+    name: "Fresh Onions",
+    suppliers: 34,
+    category: "agriculture",
+    image: onionsImg
+  },
+  {
+    id: "item-potatoes",
+    name: "Organic Potatoes",
+    suppliers: 29,
+    category: "agriculture",
+    image: potatoesImg
+  },
+  {
+    id: "item-vehicles",
+    name: "Commercial Trucks",
+    suppliers: 42,
+    category: "vehicles",
+    image: vehImg
+  },
+  {
+    id: "item-machinery",
+    name: "Industrial Machinery",
+    suppliers: 27,
+    category: "machinery",
+    image: machImg
   }
 ];
 

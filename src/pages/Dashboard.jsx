@@ -22,8 +22,22 @@ function Dashboard({ onCreateRequirement }) {
       if (typeof onCreateRequirement === "function") {
         onCreateRequirement();
       } else {
-        navigate("/buyer/requirements");
+        navigate("/buyer/select-category");
       }
+    } else if (roleId === "bids") {
+      navigate("/buyer/auctions");
+    } else if (roleId === "move") {
+      navigate("/buyer/requirements");
+    }
+  };
+
+  const handleNavChange = (navId) => {
+    setActiveNav(navId);
+
+    if (navId === "browse") {
+      navigate("/buyer/select-category");
+    } else if (navId === "deals") {
+      navigate("/buyer/auctions");
     }
   };
 
@@ -66,7 +80,7 @@ function Dashboard({ onCreateRequirement }) {
 
       <BottomNav
         activeNav={activeNav}
-        onNavChange={setActiveNav}
+        onNavChange={handleNavChange}
         sellerMode={sellerMode}
         onSellerToggle={() => setSellerMode((prev) => !prev)}
       />

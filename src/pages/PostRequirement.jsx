@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import CategoryStep from "../components/postRequirement/CategoryStep.jsx";
-import TypeStep from "../components/postRequirement/TypeStep.jsx";
-import ProductStep from "../components/postRequirement/ProductStep.jsx";
-import DetailsStep from "../components/postRequirement/DetailsStep.jsx";
 import DeliveryStep from "../components/postRequirement/DeliveryStep.jsx";
 import BudgetStep from "../components/postRequirement/BudgetStep.jsx";
 import PostedConfirmation from "../components/postRequirement/PostedConfirmation.jsx";
@@ -25,9 +22,25 @@ const initialFormData = {
 
 function PostRequirement({ onBackToDashboard }) {
   const navigate = useNavigate();
-  const handleBack = onBackToDashboard || (() => navigate("/buyer/requirements"));
-  const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState(initialFormData);
+  const location = useLocation();
+  const handleBack =
+    onBackToDashboard ||
+    (() => {
+      navigate("/buyer/sub-category", {
+        state: { categoryId: location.state?.category || formData.category || "vehicles" }
+      });
+    });
+
+  const [currentStep, setCurrentStep] = useState(() => {
+    const requested = location.state?.step;
+    if (requested === 5 || requested === 3) return 3;
+    return requested || 1;
+  });
+  const [formData, setFormData] = useState(() => ({
+    ...initialFormData,
+    category: location.state?.category || "vehicles",
+    product: location.state?.product || "car"
+  }));
   const [isPosted, setIsPosted] = useState(false);
   const [requirementId, setRequirementId] = useState("");
 
@@ -35,12 +48,19 @@ function PostRequirement({ onBackToDashboard }) {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const goNext = () => setCurrentStep((prev) => Math.min(prev + 1, 6));
-  const goBack = () => {
+  const goNext = () => {
     if (currentStep === 1) {
-      handleBack();
+      setCurrentStep(3);
+    } else if (currentStep === 3) {
+      setCurrentStep(4);
+    }
+  };
+
+  const goBack = () => {
+    if (currentStep === 4) {
+      setCurrentStep(3);
     } else {
-      setCurrentStep((prev) => prev - 1);
+      handleBack();
     }
   };
 
@@ -66,49 +86,13 @@ function PostRequirement({ onBackToDashboard }) {
       <CategoryStep
         selectedCategory={formData.category}
         onSelect={(value) => updateField("category", value)}
-        onNext={goNext}
+        onNext={() => setCurrentStep(3)}
         onBack={handleBack}
       />
     );
   }
 
-  if (currentStep === 2) {
-    return (
-      <TypeStep
-        selectedType={formData.type}
-        onSelect={(value) => updateField("type", value)}
-        onNext={goNext}
-        onBack={goBack}
-      />
-    );
-  }
-
   if (currentStep === 3) {
-    return (
-      <ProductStep
-        categoryId={formData.category}
-        selectedProduct={formData.product}
-        onSelect={(value) => updateField("product", value)}
-        onNext={goNext}
-        onBack={goBack}
-      />
-    );
-  }
-
-  if (currentStep === 4) {
-    return (
-      <DetailsStep
-        quantity={formData.quantity}
-        unit={formData.unit}
-        note={formData.note}
-        onChange={updateField}
-        onNext={goNext}
-        onBack={goBack}
-      />
-    );
-  }
-
-  if (currentStep === 5) {
     return (
       <DeliveryStep
         location={formData.location}

@@ -1,11 +1,13 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { BackArrowIcon, BellIcon, SearchIcon, CheckIcon } from "../Icons.jsx";
 import { productsByCategory } from "../../data/requirementData.js";
 
 function ProductStep({ categoryId, selectedProduct, onSelect, onNext, onBack }) {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const key = categoryId === "vechiles" ? "vehicles" : (categoryId || "vehicles");
-  const products = productsByCategory[key] || productsByCategory.vehicles || [];
+  const products = useMemo(() => productsByCategory[key] || productsByCategory.vehicles || [], [key]);
 
   const filteredProducts = useMemo(() => {
     const term = searchTerm.trim().toLowerCase();
@@ -27,7 +29,12 @@ function ProductStep({ categoryId, selectedProduct, onSelect, onNext, onBack }) 
           <BackArrowIcon />
         </button>
         <span className="prod-brand-logo">bixoo</span>
-        <button type="button" className="prod-bell-btn" aria-label="Notifications">
+        <button
+          type="button"
+          className="prod-bell-btn"
+          aria-label="Notifications"
+          onClick={() => navigate("/buyer/notifications")}
+        >
           <BellIcon />
         </button>
       </div>
