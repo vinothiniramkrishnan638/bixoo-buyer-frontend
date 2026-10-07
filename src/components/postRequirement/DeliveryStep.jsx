@@ -215,23 +215,23 @@ function DeliveryStep({ location, date, time, onChange, onNext, onBack }) {
       <div className="del-stepper-8">
         <div className="del-track-container">
           <div className="del-track-bg-line" />
-          <div className="del-track-fill-line del-track-fill-step3" />
+          <div className="del-track-fill-line del-track-fill-step4" />
           <div className="del-step-dot del-dot-done"><span>1</span></div>
           <div className="del-step-dot del-dot-done"><span>2</span></div>
+          <div className="del-step-dot del-dot-done"><span>3</span></div>
           <div className="del-step-dot del-dot-active">
             <div className="del-dot-active-inner">
-              <span>3</span>
+              <span>4</span>
             </div>
           </div>
-          <div className="del-step-dot del-dot-inactive"><span>4</span></div>
           <div className="del-step-dot del-dot-inactive"><span>5</span></div>
         </div>
         <div className="del-stepper-meta">
           <div className="del-meta-left">
-            <span className="del-step-title-teal">Step 5: Delivery</span>
+            <span className="del-step-title-teal">Step 4: Delivery</span>
           </div>
           <div className="del-meta-right">
-            <span className="del-step-percent">62% Complete</span>
+            <span className="del-step-percent">80% Complete</span>
           </div>
         </div>
       </div>

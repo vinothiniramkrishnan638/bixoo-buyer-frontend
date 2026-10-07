@@ -96,10 +96,11 @@ function SubCategoryHub() {
   };
 
   const handleOpenDelivery = (short) => {
-    navigate("/buyer/post-requirement", {
+    navigate("/buyer/delivery", {
       state: {
         category: currentCategoryId,
         product: short.title,
+        productImage: short.image,
         step: 3
       }
     });

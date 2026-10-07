@@ -39,33 +39,27 @@ function ProductStep({ categoryId, selectedProduct, onSelect, onNext, onBack }) 
         </button>
       </div>
 
-      <div className="prod-stepper-4">
-        <div className="prod-step-item done">
-          <div className="prod-step-circle">
-            <CheckIcon style={{ width: 12, height: 10, stroke: "#FFFFFF", strokeWidth: 3 }} />
+      <div className="del-stepper-8">
+        <div className="del-track-container">
+          <div className="del-track-bg-line" />
+          <div className="del-track-fill-line del-track-fill-step2" />
+          <div className="del-step-dot del-dot-done"><span>1</span></div>
+          <div className="del-step-dot del-dot-active">
+            <div className="del-dot-active-inner">
+              <span>2</span>
+            </div>
           </div>
-          <span className="prod-step-label">Step 1:</span>
-          <span className="prod-step-title">Category</span>
+          <div className="del-step-dot del-dot-inactive"><span>3</span></div>
+          <div className="del-step-dot del-dot-inactive"><span>4</span></div>
+          <div className="del-step-dot del-dot-inactive"><span>5</span></div>
         </div>
-        <div className="prod-step-line done" />
-        <div className="prod-step-item done">
-          <div className="prod-step-circle">
-            <CheckIcon style={{ width: 12, height: 10, stroke: "#FFFFFF", strokeWidth: 3 }} />
+        <div className="del-stepper-meta">
+          <div className="del-meta-left">
+            <span className="del-step-title-teal">Step 2: Product</span>
           </div>
-          <span className="prod-step-label">Step 2:</span>
-          <span className="prod-step-title">Type</span>
-        </div>
-        <div className="prod-step-line active" />
-        <div className="prod-step-item active">
-          <div className="prod-step-circle">3</div>
-          <span className="prod-step-label">Step 3:</span>
-          <span className="prod-step-title">Product</span>
-        </div>
-        <div className="prod-step-line" />
-        <div className="prod-step-item">
-          <div className="prod-step-circle">4</div>
-          <span className="prod-step-label">Step 4:</span>
-          <span className="prod-step-title">Details</span>
+          <div className="del-meta-right">
+            <span className="del-step-percent">40% Complete</span>
+          </div>
         </div>
       </div>
 

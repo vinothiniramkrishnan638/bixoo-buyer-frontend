@@ -1,4 +1,3 @@
-import { CheckIcon } from "../Icons.jsx";
 import { productsByCategory } from "../../data/requirementData.js";
 
 function PostedConfirmation({ formData, requirementId, onBackToDashboard, onViewRequirement }) {
@@ -11,10 +10,25 @@ function PostedConfirmation({ formData, requirementId, onBackToDashboard, onView
 
   return (
     <div className="conf-page-shell">
+      <div className="conf-deco-bg" />
       <div className="conf-halo-wrap">
         <div className="conf-halo-glow" />
         <div className="conf-icon-circle">
-          <CheckIcon style={{ width: 32, height: 32, stroke: "#FFFFFF", strokeWidth: 3 }} />
+          <div className="conf-icon-inner">
+            <svg
+              className="conf-icon-svg"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="#006A66"
+              strokeWidth="3.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -28,18 +42,25 @@ function PostedConfirmation({ formData, requirementId, onBackToDashboard, onView
       </p>
 
       <div className="conf-summary-card">
-        <span className="conf-summary-heading">REQUIREMENT SUMMARY</span>
-        <div className="conf-summary-row">
-          <span className="conf-summary-label">Product</span>
-          <span className="conf-summary-val">{productName}</span>
-        </div>
-        <div className="conf-summary-row">
-          <span className="conf-summary-label">Quantity</span>
-          <span className="conf-summary-val">{quantityText}</span>
-        </div>
-        <div className="conf-summary-row no-border">
-          <span className="conf-summary-label">Target Date</span>
-          <span className="conf-summary-val">{targetDateText}</span>
+        <div className="conf-card-accent" />
+        <div className="conf-summary-inner">
+          <div className="conf-summary-heading">REQUIREMENT SUMMARY</div>
+          <div className="conf-summary-rows">
+            <div className="conf-summary-row">
+              <span className="conf-summary-label">Product</span>
+              <span className="conf-summary-val">{productName}</span>
+            </div>
+            <div className="conf-summary-divider" />
+            <div className="conf-summary-row">
+              <span className="conf-summary-label">Quantity</span>
+              <span className="conf-summary-val">{quantityText}</span>
+            </div>
+            <div className="conf-summary-divider" />
+            <div className="conf-summary-row">
+              <span className="conf-summary-label">Target Date</span>
+              <span className="conf-summary-val">{targetDateText}</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -49,8 +70,8 @@ function PostedConfirmation({ formData, requirementId, onBackToDashboard, onView
           className="conf-view-req-btn"
           onClick={onViewRequirement}
         >
-          <span>View Requirement</span>
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <span className="conf-view-req-text">View Requirement</span>
+          <svg className="conf-view-req-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
           </svg>

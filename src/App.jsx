@@ -9,6 +9,10 @@ import ChatHub from "./pages/ChatHub";
 import ProfileHub from "./pages/ProfileHub";
 import AuctionsHub from "./pages/AuctionsHub";
 import RequestCategory from "./pages/RequestCategory";
+import VerifiedSuppliers from "./pages/VerifiedSuppliers";
+import SupplierResponses from "./pages/SupplierResponses";
+import RefineReach from "./pages/RefineReach";
+import SelectCities from "./pages/SelectCities";
 
 function App() {
   return (
@@ -38,6 +42,61 @@ function App() {
           <Route
             path="/buyer/sub-category"
             element={<SubCategoryHub />}
+          />
+
+          <Route
+            path="/buyer/category"
+            element={<PostRequirement />}
+          />
+
+          <Route
+            path="/buyer/product"
+            element={<PostRequirement />}
+          />
+
+          <Route
+            path="/buyer/type"
+            element={<PostRequirement />}
+          />
+
+          <Route
+            path="/buyer/refine-reach"
+            element={<RefineReach />}
+          />
+
+          <Route
+            path="/buyer/select-cities"
+            element={<SelectCities />}
+          />
+
+          <Route
+            path="/buyer/verified-suppliers"
+            element={<VerifiedSuppliers />}
+          />
+
+          <Route
+            path="/buyer/delivery"
+            element={<PostRequirement />}
+          />
+
+          <Route
+            path="/buyer/budget"
+            element={<PostRequirement />}
+          />
+
+          <Route
+            path="/buyer/buget"
+            element={<Navigate to="/buyer/budget" replace />}
+          />
+
+          <Route
+            path="/buyer/confirmation"
+            element={<PostRequirement />}
+          />
+
+          <Route
+            path="/buyer/responses"
+            element={<SupplierResponses />}
           />
 
           <Route

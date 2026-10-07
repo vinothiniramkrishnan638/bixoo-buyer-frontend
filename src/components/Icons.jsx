@@ -347,11 +347,25 @@ export function HelpQuestionIcon(props) {
 
 export function TractorIcon(props) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <circle cx="6" cy="17" r="3" />
-      <circle cx="17.5" cy="15" r="4.5" />
-      <path d="M6 14h6.5l2-5H18v6" />
-      <path d="M12 9V5H8l-2 5" />
+    <svg
+      viewBox="0 0 24 24"
+      width="22"
+      height="17.2"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M3.5 8h4.2" />
+      <path d="M11.2 8.2l-2.6-3.8" />
+      <path d="M7 6l3.4-2.5" />
+      <path d="M7 11c1.8 0 2.4 1.8 3.5 1.8h.7V8h6a2 2 0 0 1 2 2v3.6" />
+      <path d="M10.5 14.8h4.4" />
+      <circle cx="6.8" cy="14" r="3.8" />
+      <circle cx="6.8" cy="14" r="1.3" />
+      <circle cx="17" cy="15" r="2.2" />
     </svg>
   );
 }

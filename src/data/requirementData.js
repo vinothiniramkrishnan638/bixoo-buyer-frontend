@@ -6,6 +6,8 @@ import onionsImg from "../assets/Fresh Onions.png";
 import potatoesImg from "../assets/Potatoes.png";
 import agricultureImg from "../assets/Agriculture.png";
 import vechileImg from "../assets/vechile.png";
+import needsVechileImg from "../assets/needs vechile.jpg";
+import needsAgricultureImg from "../assets/needs agriculture.jpg";
 import truckImg from "../assets/vechile commercial truck.jpg";
 import agriGrainImg from "../assets/agriculture grain.jpg";
 import machineryImg from "../assets/machinery and industrial.jpg";
@@ -29,7 +31,7 @@ export const categories = [
     suppliers: 140,
     sector: "heavy-industry",
     iconType: "truck",
-    image: truckImg
+    image: needsVechileImg
   },
   {
     id: "agriculture",
@@ -38,7 +40,7 @@ export const categories = [
     suppliers: 320,
     sector: "agro-food",
     iconType: "tractor",
-    image: agriGrainImg
+    image: needsAgricultureImg
   },
   {
     id: "machinery",
@@ -233,6 +235,7 @@ export const postedRequirements = [
     posted: "Today, 09:30 AM",
     status: "matching",
     statusLabel: "Matching...",
+    filterType: "matching",
     quotesCount: 0,
     acceptedCount: 0,
     partialCount: 0,
@@ -245,10 +248,37 @@ export const postedRequirements = [
     posted: "Yesterday",
     status: "quotes",
     statusLabel: "3 Quotes",
+    filterType: "accepted",
     quotesCount: 3,
     acceptedCount: 1,
-    partialCount: 2,
+    partialCount: 0,
     image: wheatGrainsImg
+  },
+  {
+    id: "RQ-8895",
+    title: "Fresh Farm Onions",
+    quantity: "15 Tons",
+    posted: "2 Days Ago",
+    status: "quotes",
+    statusLabel: "2 Quotes",
+    filterType: "partial",
+    quotesCount: 2,
+    acceptedCount: 0,
+    partialCount: 2,
+    image: onionsImg
+  },
+  {
+    id: "RQ-8850",
+    title: "Raw Construction Materials",
+    quantity: "100 Tons",
+    posted: "28 Sep 2026",
+    status: "completed",
+    statusLabel: "Completed",
+    filterType: "completed",
+    quotesCount: 4,
+    acceptedCount: 1,
+    partialCount: 0,
+    image: rawConstructionImg
   }
 ];
 
@@ -1684,6 +1714,49 @@ export const buyerSupplierOffers = {
       location: "Salem, TN",
       reachZone: "Tamil Nadu Wide"
     }
+  ],
+  "RQ-8895": [
+    {
+      id: "OFFER-301",
+      supplierName: "Kongu Agro Farm Gate",
+      rating: "4.8",
+      verified: true,
+      supplyType: "Partial Supply",
+      quantity: "8 Tons",
+      pricePerUnit: "₹26,000/Ton",
+      totalPrice: "₹2,08,000",
+      deliveryTimeline: "Delivery in 2 Days",
+      location: "Erode, TN",
+      reachZone: "Local Zone"
+    },
+    {
+      id: "OFFER-302",
+      supplierName: "Coimbatore Farm Fresh Hub",
+      rating: "4.7",
+      verified: true,
+      supplyType: "Partial Supply",
+      quantity: "7 Tons",
+      pricePerUnit: "₹26,500/Ton",
+      totalPrice: "₹1,85,500",
+      deliveryTimeline: "Delivery in 3 Days",
+      location: "Coimbatore, TN",
+      reachZone: "Tamil Nadu Wide"
+    }
+  ],
+  "RQ-8850": [
+    {
+      id: "OFFER-401",
+      supplierName: "Apex Aggregates & Cement",
+      rating: "4.9",
+      verified: true,
+      supplyType: "Full Supply",
+      quantity: "100 Tons",
+      pricePerUnit: "₹18,000/Ton",
+      totalPrice: "₹18,00,000",
+      deliveryTimeline: "Delivered",
+      location: "Trichy, TN",
+      reachZone: "Tamil Nadu Wide"
+    }
   ]
 };
 
@@ -1732,5 +1805,53 @@ export const buyerOrders = [
     vehicleNumber: "TN-45-AT-7823",
     driverName: "Karthik Raja",
     invoiceId: "INV-2026-8703"
+  }
+];
+
+export const figmaSupplierResponses = [
+  {
+    id: "RESP-001",
+    supplierName: "AgroKing Traders",
+    initials: "AK",
+    verified: true,
+    rating: "4.9",
+    supplyType: "FULL SUPPLY",
+    supplyBadgeColor: "#0D9488",
+    offeredQty: "500 Quintals",
+    offeredPrice: "₹24,500/Qtl",
+    totalPrice: "₹1,22,50,000",
+    deliveryTimeline: "2 Days (Immediate Dispatch)",
+    location: "Salem, Tamil Nadu",
+    actionType: "review"
+  },
+  {
+    id: "RESP-002",
+    supplierName: "Sunrise Supplies",
+    initials: "SS",
+    verified: true,
+    rating: "4.8",
+    supplyType: "PARTIAL SUPPLY",
+    supplyBadgeColor: "#D97706",
+    offeredQty: "300 Quintals",
+    offeredPrice: "₹24,200/Qtl",
+    totalPrice: "₹72,60,000",
+    deliveryTimeline: "4 Days",
+    location: "Madurai, Tamil Nadu",
+    actionType: "review"
+  },
+  {
+    id: "RESP-003",
+    supplierName: "Global Basmati Co.",
+    initials: "GB",
+    verified: false,
+    rating: "4.6",
+    supplyType: "FULL SUPPLY",
+    supplyBadgeColor: "#0D9488",
+    offeredQty: "500 Quintals",
+    offeredPrice: "₹23,800/Qtl",
+    totalPrice: "₹1,19,00,000",
+    deliveryTimeline: "3 Days",
+    location: "Coimbatore, Tamil Nadu",
+    actionType: "negotiate"
   }
 ];

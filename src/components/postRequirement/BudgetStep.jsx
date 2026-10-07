@@ -25,28 +25,36 @@ function BudgetStep({ budget, details, attachmentName, onChange, onNext, onBack 
       <div className="del-stepper-8">
         <div className="del-track-container">
           <div className="del-track-bg-line" />
-          <div className="del-track-fill-line del-track-fill-step4" />
+          <div className="del-track-fill-line del-track-fill-step5" />
           <div className="del-step-dot del-dot-done"><span>1</span></div>
           <div className="del-step-dot del-dot-done"><span>2</span></div>
           <div className="del-step-dot del-dot-done"><span>3</span></div>
+          <div className="del-step-dot del-dot-done"><span>4</span></div>
           <div className="del-step-dot del-dot-active">
             <div className="del-dot-active-inner">
-              <span>4</span>
+              <span>5</span>
             </div>
           </div>
-          <div className="del-step-dot del-dot-inactive"><span>5</span></div>
         </div>
         <div className="del-stepper-meta">
-          <span className="del-step-title-teal">Step 4: Budget &amp; Additional Details</span>
-          <span className="del-step-percent">80% Complete</span>
+          <div className="del-meta-left">
+            <span className="del-step-title-teal">Step 5: Budget</span>
+          </div>
+          <div className="del-meta-right">
+            <span className="del-step-percent">100% Complete</span>
+          </div>
         </div>
       </div>
 
       <div className="budget-header-block">
-        <h1 className="budget-heading">Budget &amp; Additional Details</h1>
-        <p className="budget-subtext">
-          Set your expectations and add any relevant files for better matches.
-        </p>
+        <div className="budget-heading-wrap">
+          <h1 className="budget-heading">Budget &amp; Additional Details</h1>
+        </div>
+        <div className="budget-subtext-wrap">
+          <p className="budget-subtext">
+            Set your expectations and add any relevant files for better matches.
+          </p>
+        </div>
       </div>
 
       <div className="budget-form-card">
@@ -56,6 +64,7 @@ function BudgetStep({ budget, details, attachmentName, onChange, onNext, onBack 
             <span className="budget-currency-symbol">₹</span>
             <input
               type="text"
+              inputMode="decimal"
               className="budget-amount-input"
               placeholder="0.00"
               value={budget}
@@ -64,38 +73,69 @@ function BudgetStep({ budget, details, attachmentName, onChange, onNext, onBack 
           </div>
         </div>
 
+        <div className="budget-separator-wrap">
+          <div className="budget-separator" />
+        </div>
+
         <div className="budget-field-group">
           <div className="budget-label-row">
-            <label className="budget-field-label">Requirement Details</label>
+            <label className="budget-field-label-text">Requirement Details</label>
             <span className="budget-optional-tag">Optional</span>
           </div>
-          <textarea
-            className="budget-textarea"
-            placeholder="Describe specific quality standards, delivery timelines, or packaging requirements..."
-            value={details}
-            onChange={(event) => onChange("details", event.target.value)}
-            rows={4}
-          />
+          <div className="budget-textarea-wrap">
+            <textarea
+              className="budget-textarea"
+              placeholder="Describe specific quality standards, delivery timelines, or packaging requirements..."
+              value={details}
+              onChange={(event) => onChange("details", event.target.value)}
+              rows={3}
+            />
+          </div>
         </div>
       </div>
 
       <div className="budget-attach-section">
-        <h2 className="budget-section-heading">Attachments</h2>
+        <div className="budget-attach-heading-wrap">
+          <h2 className="budget-section-heading">Attachments</h2>
+        </div>
 
         <button
           type="button"
           className="budget-dropzone"
           onClick={() => fileInputRef.current && fileInputRef.current.click()}
         >
-          <div className="budget-dropzone-icon-circle">
-            <UploadIcon style={{ color: "#199587", width: 22, height: 22 }} />
+          <div className="budget-dropzone-icon-wrap">
+            <div className="budget-dropzone-icon-circle">
+              <UploadIcon style={{ color: "#2AAFA9", width: 18, height: 18 }} />
+            </div>
           </div>
           <span className="budget-dropzone-title">
             {attachmentName || "Add Photo/Document"}
           </span>
           <span className="budget-dropzone-sub">
-            JPG, PNG, PDF up to 5MB
+            {attachmentName ? "Click to change file" : "JPG, PNG, PDF up to 5MB"}
           </span>
+          {attachmentName && (
+            <div
+              role="button"
+              tabIndex={0}
+              className="budget-dropzone-remove-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (fileInputRef.current) fileInputRef.current.value = "";
+                onChange("attachmentName", "");
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.stopPropagation();
+                  if (fileInputRef.current) fileInputRef.current.value = "";
+                  onChange("attachmentName", "");
+                }
+              }}
+            >
+              <span>✕</span> Remove File
+            </div>
+          )}
         </button>
 
         <input
@@ -107,17 +147,19 @@ function BudgetStep({ budget, details, attachmentName, onChange, onNext, onBack 
         />
       </div>
 
-      <button
-        type="button"
-        className="wiz-primary-btn"
-        onClick={onNext}
-      >
-        <span>Next Step</span>
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12" />
-          <polyline points="12 5 19 12 12 19" />
-        </svg>
-      </button>
+      <div className="budget-actions-footer">
+        <button
+          type="button"
+          className="budget-next-btn"
+          onClick={onNext}
+        >
+          <span className="budget-next-btn-text">Next Step</span>
+          <svg className="budget-next-btn-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 }

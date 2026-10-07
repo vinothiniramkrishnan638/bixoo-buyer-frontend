@@ -61,31 +61,27 @@ function TypeStep({ selectedType, onSelect, onNext, onBack }) {
         </button>
       </div>
 
-      <div className="type-stepper-3">
-        <div className="type-step-item done">
-          <div className="type-step-circle">
-            <CheckIcon style={{ width: 14, height: 14, stroke: "#FFFFFF", strokeWidth: 3 }} />
-          </div>
-          <span className="type-step-sub">STEP 1</span>
-          <span className="type-step-name">Category</span>
-        </div>
-        <div className="type-step-line done" />
-        <div className="type-step-item active">
-          <div className="type-step-circle">
-            <div className="type-step-inner-circle">
-              <div className="type-step-inner-dot" />
+      <div className="del-stepper-8">
+        <div className="del-track-container">
+          <div className="del-track-bg-line" />
+          <div className="del-track-fill-line del-track-fill-step3" />
+          <div className="del-step-dot del-dot-done"><span>1</span></div>
+          <div className="del-step-dot del-dot-done"><span>2</span></div>
+          <div className="del-step-dot del-dot-active">
+            <div className="del-dot-active-inner">
+              <span>3</span>
             </div>
           </div>
-          <span className="type-step-sub">STEP 2</span>
-          <span className="type-step-name">Type</span>
+          <div className="del-step-dot del-dot-inactive"><span>4</span></div>
+          <div className="del-step-dot del-dot-inactive"><span>5</span></div>
         </div>
-        <div className="type-step-line" />
-        <div className="type-step-item">
-          <div className="type-step-circle">
-            <div className="type-step-circle-dot" />
+        <div className="del-stepper-meta">
+          <div className="del-meta-left">
+            <span className="del-step-title-teal">Step 3: Requirement Type</span>
           </div>
-          <span className="type-step-sub">STEP 3</span>
-          <span className="type-step-name">Product</span>
+          <div className="del-meta-right">
+            <span className="del-step-percent">60% Complete</span>
+          </div>
         </div>
       </div>
 

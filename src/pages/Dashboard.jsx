@@ -22,7 +22,7 @@ function Dashboard({ onCreateRequirement }) {
       if (typeof onCreateRequirement === "function") {
         onCreateRequirement();
       } else {
-        navigate("/buyer/select-category");
+        navigate("/buyer/requirements");
       }
     } else if (roleId === "bids") {
       navigate("/buyer/auctions");
