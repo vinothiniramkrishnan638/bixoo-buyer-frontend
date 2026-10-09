@@ -8,6 +8,10 @@ import agricultureImg from "../assets/Agriculture.png";
 import vechileImg from "../assets/vechile.png";
 import needsVechileImg from "../assets/needs vechile.jpg";
 import needsAgricultureImg from "../assets/needs agriculture.jpg";
+import needsMachineImg from "../assets/needs machine.jpg";
+import needsElectricalImg from "../assets/needs electrical.jpg";
+import needsRawMaterialImg from "../assets/needs raw material.jpg";
+import needsPackingImg from "../assets/needs packing.jpg";
 import truckImg from "../assets/vechile commercial truck.jpg";
 import agriGrainImg from "../assets/agriculture grain.jpg";
 import machineryImg from "../assets/machinery and industrial.jpg";
@@ -22,6 +26,8 @@ import cargoVanImg from "../assets/cargo van.jpg";
 import openLorryImg from "../assets/open lorry.jpg";
 import containersImg from "../assets/containers.jpg";
 import tataAceImg from "../assets/tata ace.jpg";
+import machieryImg from "../assets/machiery.png";
+import rawMaterialImg from "../assets/raw material.png";
 
 export const categories = [
   {
@@ -49,7 +55,7 @@ export const categories = [
     suppliers: 210,
     sector: "heavy-industry",
     iconType: "tool",
-    image: machineryImg
+    image: needsMachineImg
   },
   {
     id: "electronics",
@@ -58,7 +64,7 @@ export const categories = [
     suppliers: 480,
     sector: "heavy-industry",
     iconType: "chip",
-    image: electronicsChipImg
+    image: needsElectricalImg
   },
   {
     id: "raw-materials",
@@ -67,16 +73,16 @@ export const categories = [
     suppliers: 195,
     sector: "heavy-industry",
     iconType: "layers",
-    image: rawConstructionImg
+    image: needsRawMaterialImg
   },
   {
     id: "packaging",
     name: "Packaging",
-    description: "Boxes, pallets, containers, and wrap.",
+    description: "Boxes, materials, and logistics prep.",
     suppliers: 310,
     sector: "heavy-industry",
     iconType: "box",
-    image: packingWarehouseImg
+    image: needsPackingImg
   }
 ];
 
@@ -173,50 +179,55 @@ export const sectorFilters = [
 
 export const productsByCategory = {
   vehicles: [
-    { id: "bike", name: "Bike", image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=300&q=80" },
-    { id: "car", name: "Car", image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=300&q=80" },
-    { id: "van", name: "Van", image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=300&q=80" },
-    { id: "truck", name: "Truck", image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=300&q=80" },
-    { id: "lorry", name: "Lorry", image: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=300&q=80" }
+    { id: "truck", name: "Commercial Truck", image: truckImg },
+    { id: "cargo-van", name: "Cargo Van", image: cargoVanImg },
+    { id: "mini-truck", name: "Mini Truck", image: miniTruckImg },
+    { id: "open-lorry", name: "Open Lorry", image: openLorryImg },
+    { id: "tata-ace", name: "Tata Ace", image: tataAceImg },
+    { id: "containers", name: "Container Logistics", image: containersImg },
+    { id: "fleet-car", name: "Commercial Fleet", image: vechileImg },
+    { id: "delivery-bike", name: "Delivery Bike", image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=300&q=80" }
   ],
   agriculture: [
-    { id: "wheat", name: "Wheat", image: "https://picsum.photos/seed/bixoo-prod-wheat/200/160" },
-    { id: "rice", name: "Basmati Rice", image: "https://picsum.photos/seed/bixoo-prod-rice/200/160" },
-    { id: "cotton", name: "Fresh Vegetables", image: "https://picsum.photos/seed/bixoo-prod-veg/200/160" }
+    { id: "wheat", name: "Premium Wheat", image: wheatGrainsImg },
+    { id: "onions", name: "Fresh Onions", image: onionsImg },
+    { id: "potatoes", name: "Fresh Potatoes", image: potatoesImg },
+    { id: "carrots", name: "Fresh Carrots", image: carrotImg },
+    { id: "capsicum", name: "Capsicum", image: capsicumImg },
+    { id: "grains", name: "Agriculture Grains", image: agriGrainImg }
   ],
   machinery: [
-    { id: "cnc", name: "CNC Machine", image: "https://picsum.photos/seed/bixoo-prod-cnc/200/160" },
-    { id: "generator", name: "Industrial Sensor", image: "https://picsum.photos/seed/bixoo-prod-sensors/200/160" },
-    { id: "Compressor", name: "Compressor", image: "https://picsum.photos/seed/bixoo-prod-compressor/200/160" }
+    { id: "industrial", name: "Industrial Machinery", image: machineryImg },
+    { id: "heavy-equipment", name: "Heavy Equipment", image: needsMachineImg },
+    { id: "tooling", name: "Machinery & Tooling", image: machieryImg }
   ],
   electronics: [
-    { id: "circuit-board", name: "Circuit Boards", image: "https://picsum.photos/seed/bixoo-prod-circuit/200/160" },
-    { id: "sensors", name: "Industrial Sensors", image: "https://picsum.photos/seed/bixoo-prod-sensors/200/160" },
-    { id: "modules", name: "Power Modules", image: "https://picsum.photos/seed/bixoo-prod-modules/200/160" }
+    { id: "chips", name: "Electronic Chips & ICs", image: electronicsChipImg },
+    { id: "electrical", name: "Electrical Equipment", image: needsElectricalImg }
   ],
   "raw-materials": [
-    { id: "steel-pipes", name: "Steel Pipes", image: "https://picsum.photos/seed/bixoo-prod-steel/200/160" },
-    { id: "sand", name: "Construction Sand", image: "https://picsum.photos/seed/bixoo-prod-sand/200/160" },
-    { id: "cement", name: "Cement Bags", image: "https://picsum.photos/seed/bixoo-prod-cement/200/160" }
+    { id: "steel-pipes", name: "Industrial Steel Pipes", image: steelPipesImg },
+    { id: "construction", name: "Construction Materials", image: rawConstructionImg },
+    { id: "minerals", name: "Minerals & Bulk Sand", image: needsRawMaterialImg },
+    { id: "raw-materials", name: "Bulk Raw Materials", image: rawMaterialImg }
   ],
   packaging: [
-    { id: "cartons", name: "Corrugated Cartons", image: "https://picsum.photos/seed/bixoo-prod-cartons/200/160" },
-    { id: "pallets", name: "Wooden Pallets", image: "https://picsum.photos/seed/bixoo-prod-pallets/200/160" },
-    { id: "wrap", name: "Stretch Wrap Rolls", image: "https://picsum.photos/seed/bixoo-prod-wrap/200/160" }
+    { id: "packing-warehouse", name: "Warehouse Packaging", image: packingWarehouseImg },
+    { id: "boxes-pallets", name: "Boxes & Pallet Prep", image: needsPackingImg },
+    { id: "containers", name: "Storage Containers", image: containersImg }
   ],
   chemicals: [
-    { id: "fertilizer", name: "Fertilizer", image: "https://picsum.photos/seed/bixoo-prod-fertilizer/200/160" },
-    { id: "industrial-oil", name: "Industrial Oil", image: "https://picsum.photos/seed/bixoo-prod-oil/200/160" }
+    { id: "industrial-chemicals", name: "Industrial Chemicals", image: industrialChemicalsImg }
   ],
   textiles: [
-    { id: "cotton-fabric", name: "Cotton Fabric", image: "https://picsum.photos/seed/bixoo-prod-fabric/200/160" },
-    { id: "yarn", name: "Bulk Yarn", image: "https://picsum.photos/seed/bixoo-prod-yarn/200/160" }
+    { id: "fabrics-textiles", name: "Fabrics & Textiles", image: textilesImg }
   ]
 };
 
 productsByCategory["vechiles"] = productsByCategory.vehicles;
 productsByCategory["electonics"] = productsByCategory.electronics;
 productsByCategory["texiles"] = productsByCategory.textiles;
+productsByCategory["raw_materials"] = productsByCategory["raw-materials"];
 
 export const requirementTypes = [
   { id: "single", label: "SINGLE", description: "Specific item or limited quantity.", icon: "single" },

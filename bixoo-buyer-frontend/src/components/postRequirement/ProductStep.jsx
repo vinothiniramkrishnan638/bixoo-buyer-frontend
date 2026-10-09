@@ -15,7 +15,7 @@ function ProductStep({ categoryId, selectedProduct, onSelect, onNext, onBack }) 
     return products.filter((item) => item.name.toLowerCase().includes(term));
   }, [products, searchTerm]);
 
-  const currentSelected = selectedProduct || (products[1] && products[1].id) || "car";
+  const currentSelected = selectedProduct || (products[0] && products[0].id) || "";
 
   return (
     <div className="prod-page-shell">
@@ -24,41 +24,69 @@ function ProductStep({ categoryId, selectedProduct, onSelect, onNext, onBack }) 
           type="button"
           className="prod-back-btn"
           onClick={onBack}
-          aria-label="Back"
+          aria-label="Back to Category Selection"
         >
-          <BackArrowIcon />
+          <BackArrowIcon style={{ width: 15.2, height: 15.2, color: "#006A66", strokeWidth: 2.2 }} />
         </button>
-        <span className="prod-brand-logo">bixoo</span>
-        <button
-          type="button"
-          className="prod-bell-btn"
-          aria-label="Notifications"
-          onClick={() => navigate("/buyer/notifications")}
-        >
-          <BellIcon />
-        </button>
+
+        <div className="prod-brand-logo-wrap">
+          <span className="prod-brand-logo">bixoo</span>
+        </div>
+
+        <div className="prod-bell-wrap">
+          <button
+            type="button"
+            className="prod-bell-btn"
+            aria-label="Notifications"
+            onClick={() => navigate("/buyer/notifications")}
+          >
+            <div className="prod-bell-icon-wrap">
+              <BellIcon style={{ width: 15.2, height: 19, color: "#006A66" }} />
+            </div>
+          </button>
+        </div>
       </div>
 
-      <div className="del-stepper-8">
-        <div className="del-track-container">
-          <div className="del-track-bg-line" />
-          <div className="del-track-fill-line del-track-fill-step2" />
-          <div className="del-step-dot del-dot-done"><span>1</span></div>
-          <div className="del-step-dot del-dot-active">
-            <div className="del-dot-active-inner">
-              <span>2</span>
-            </div>
+      <div className="prod-stepper-container">
+        <div className="prod-stepper-track-bg" />
+        <div className="prod-stepper-track-fill" />
+        <div className="prod-step-node">
+          <div className="prod-step-badge prod-badge-completed">
+            <CheckIcon style={{ width: 14, height: 14, stroke: "#FFFFFF", strokeWidth: 3 }} />
           </div>
-          <div className="del-step-dot del-dot-inactive"><span>3</span></div>
-          <div className="del-step-dot del-dot-inactive"><span>4</span></div>
-          <div className="del-step-dot del-dot-inactive"><span>5</span></div>
+          <div className="prod-step-text-wrap">
+            <span className="prod-step-micro-label prod-text-completed">Step 1:</span>
+            <span className="prod-step-name-label prod-text-completed">Category</span>
+          </div>
         </div>
-        <div className="del-stepper-meta">
-          <div className="del-meta-left">
-            <span className="del-step-title-teal">Step 2: Product</span>
+
+        <div className="prod-step-node">
+          <div className="prod-step-badge prod-badge-active">
+            <span>2</span>
           </div>
-          <div className="del-meta-right">
-            <span className="del-step-percent">40% Complete</span>
+          <div className="prod-step-text-wrap">
+            <span className="prod-step-micro-label prod-text-active">Step 2:</span>
+            <span className="prod-step-name-label prod-text-active">Product</span>
+          </div>
+        </div>
+
+        <div className="prod-step-node">
+          <div className="prod-step-badge prod-badge-upcoming">
+            <span>3</span>
+          </div>
+          <div className="prod-step-text-wrap">
+            <span className="prod-step-micro-label prod-text-upcoming">Step 3:</span>
+            <span className="prod-step-name-label prod-text-upcoming">Type</span>
+          </div>
+        </div>
+
+        <div className="prod-step-node">
+          <div className="prod-step-badge prod-badge-upcoming">
+            <span>4</span>
+          </div>
+          <div className="prod-step-text-wrap">
+            <span className="prod-step-micro-label prod-text-upcoming">Step 4:</span>
+            <span className="prod-step-name-label prod-text-upcoming">Details</span>
           </div>
         </div>
       </div>

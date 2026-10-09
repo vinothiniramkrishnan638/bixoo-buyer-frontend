@@ -16,13 +16,13 @@ function renderCategoryIcon(iconType) {
     case "tractor":
       return <TractorIcon style={{ width: 22, height: 17.2, color: "#3D4948" }} />;
     case "tool":
-      return <ToolIcon style={{ width: 22, height: 22, color: "#3D4948" }} />;
+      return <ToolIcon style={{ width: 18.03, height: 18.51, color: "#3D4948" }} />;
     case "chip":
-      return <ChipIcon style={{ width: 22, height: 22, color: "#3D4948" }} />;
+      return <ChipIcon style={{ width: 18, height: 18, color: "#3D4948" }} />;
     case "layers":
-      return <LayersIcon style={{ width: 22, height: 22, color: "#3D4948" }} />;
+      return <LayersIcon style={{ width: 18, height: 19.05, color: "#3D4948" }} />;
     case "box":
-      return <BoxIcon style={{ width: 22, height: 22, color: "#3D4948" }} />;
+      return <BoxIcon style={{ width: 20, height: 20, color: "#3D4948" }} />;
     default:
       return <TruckIcon style={{ width: 22, height: 22, color: "#3D4948" }} />;
   }
@@ -69,7 +69,7 @@ function CategoryStep({ selectedCategory, onSelect, onNext, onBack }) {
               </div>
               <div className="cat-step-text-wrap">
                 <span className="cat-step-micro-label cat-micro-inactive">STEP 2</span>
-                <span className="cat-step-bottom-label cat-bottom-inactive">Quantity</span>
+                <span className="cat-step-bottom-label cat-bottom-inactive">Product</span>
               </div>
             </div>
 
@@ -79,7 +79,7 @@ function CategoryStep({ selectedCategory, onSelect, onNext, onBack }) {
               </div>
               <div className="cat-step-text-wrap">
                 <span className="cat-step-micro-label cat-micro-inactive">STEP 3</span>
-                <span className="cat-step-bottom-label cat-bottom-inactive">Location</span>
+                <span className="cat-step-bottom-label cat-bottom-inactive">Type</span>
               </div>
             </div>
           </div>
